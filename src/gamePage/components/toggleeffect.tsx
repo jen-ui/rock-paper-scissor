@@ -1,5 +1,5 @@
 import { useState} from "react";
-import { Paper, Rock, Scissors } from "./shapes";
+import { Shape } from "./shapes";
 import { ToggleProps } from "../interfacce";
 // import { useLocation, useNavigate } from "react-router-dom";
 
@@ -18,19 +18,19 @@ function ToggleComponent({ setScore,score }: ToggleProps) {
   const choices = [
     {
       value: 1,
-      component: <Scissors />,
+      component: <Shape index={0} />,
       win: 2,
       loseTo: 3,
     },
     {
       value: 2,
-      component: <Paper />,
+      component: <Shape index={1} />,
       win: 3,
       loseTo: 1,
     },
     {
       value: 3,
-      component: <Rock />,
+      component: <Shape index={2} />,
       win: 1,
       loseTo: 2,
     },

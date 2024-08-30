@@ -1,4 +1,4 @@
-import { Paper, Rock, Scissors } from "./shapes";
+import { Shape } from "./shapes";
 
 
 const Triangle = () => {
@@ -19,16 +19,16 @@ const Triangle = () => {
        
         className="absolute left-0 top-0 "
       >
-        <Paper />
+        <Shape index={0} />
       </div>
       <div  className="absolute  bottom-0">
-        <Rock />
+        <Shape index={1} />
       </div>
       <div
        
         className="absolute top-0 right-0"
       >
-        <Scissors />
+        <Shape index={2} />
       </div>
     </div>
   );
