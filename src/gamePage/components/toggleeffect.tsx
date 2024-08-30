@@ -110,6 +110,7 @@ function ToggleComponent({ setScore,score }: ToggleProps) {
             >
               <div className="font-semibold font-barlow text-white tracking-normal text-lg  ">
                 {item.heading}
+                
               </div>
               <button onClick={()=> stopSpin(item.value)} className="">
                 {item.component}
