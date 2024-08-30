@@ -34,4 +34,26 @@ const Rock = () => {
   );
 };
 
-export { Paper, Scissors, Rock };
+const Rock1 = ()=>{
+  return (
+    <div>
+      <img src="./icon-rock.svg" alt="rock" className="object-contain h-14" />
+    </div>
+  );
+}
+const Paper1 = () => {
+  return (
+    <div>
+      <img src="./icon-rock.svg" alt="rock" className="object-contain h-14" />
+    </div>
+  );
+};
+const Scissor2 = () => {
+  return (
+    <div>
+      <img src="./icon-rock.svg" alt="rock" className="object-contain h-14" />
+    </div>
+  );
+};
+
+export { Paper, Scissors, Rock, Rock1,Paper1,Scissor2 };

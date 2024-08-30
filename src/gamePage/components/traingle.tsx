@@ -1,15 +1,10 @@
-import { useNavigate } from "react-router-dom";
 import { Paper, Rock, Scissors } from "./shapes";
 
 
 const Triangle = () => {
-  const navigate = useNavigate()
   
-  function handleNavigate(userChoice:number) {
-    navigate('/ongoingGame', {
-      state:{userChoice:userChoice}
-    })
-  }
+
+ 
 
   return (
     <div className="flex bg-transparent pt-8 mx-auto w-[300px] h:[300px] md:w-[450px] md:h-[400px] relative mt-20  items-center justify-center">
@@ -20,21 +15,21 @@ const Triangle = () => {
           alt="triangle"
         />
       </div>
-      <button
-        onClick={() => handleNavigate(1)}
+      <div
+       
         className="absolute left-0 top-0 "
       >
         <Paper />
-      </button>
-      <button onClick={() => handleNavigate(2)} className="absolute  bottom-0">
+      </div>
+      <div  className="absolute  bottom-0">
         <Rock />
-      </button>
-      <button
-        onClick={() => handleNavigate(0)}
+      </div>
+      <div
+       
         className="absolute top-0 right-0"
       >
         <Scissors />
-      </button>
+      </div>
     </div>
   );
 };

@@ -1,6 +1,17 @@
-type RulesProps = {
-  setDisplayRules: React.Dispatch<React.SetStateAction<boolean>>;
+import { ReactNode } from "react";
+
+
+type ButtonProps = {
+  handleClick: React.MouseEventHandler<HTMLButtonElement> | undefined,
+  children: ReactNode;
+};
+
+type ToggleProps = {
+  setScore: React.Dispatch<React.SetStateAction<number>>;
+  score:number
 };
 
 
-export default RulesProps
+
+
+export type {ToggleProps,ButtonProps}

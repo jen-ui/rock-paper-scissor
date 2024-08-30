@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from "react";
+import { useState} from "react";
 import { Paper, Rock, Scissors } from "./shapes";
+import { ToggleProps } from "../interfacce";
 // import { useLocation, useNavigate } from "react-router-dom";
 
-function ToggleComponent() {
-  const [winner, setWinner] = useState("");
+function ToggleComponent({ setScore,score }: ToggleProps) {
   const [winStatus, setWinStatus] = useState("");
   const [gameover, setGameover] = useState<boolean>(false);
   const [userChoice, setUserChoice] = useState(0);
   const [intervalId, setIntervalId] = useState<number>();
-  const [gameon, setGameOn] = useState<boolean>(false)
+  const [gameon, setGameOn] = useState<boolean>(false);
+
 
   // const navigate = useNavigate();
 
@@ -51,10 +52,11 @@ function ToggleComponent() {
 
   // Function to continuously toggle between the choices
   const toggleChoices = () => {
-    setGameOn(true)
-    setGameover(false)
+    setGameOn(true);
+    setGameover(false);
     let computerIndex: number = 0;
     const interID = setInterval(() => {
+      
       setUserChoice(index);
       setComputerChoice(computerIndex);
       index = (index + 1) % choices.length;
@@ -65,9 +67,9 @@ function ToggleComponent() {
 
   // Stop the toggle after 3 seconds and choose a random final choice
   const stopSpin = (value: number) => {
-     console.log(intervalId);
+    console.log("inside stop spin2");
     if (value == 2) return;
-    console.log(intervalId);
+
 
     clearInterval(intervalId);
     const randomChoice1 = Math.floor(Math.random() * choices.length);
@@ -75,23 +77,23 @@ function ToggleComponent() {
 
     setComputerChoice(randomChoice1);
     setUserChoice(randomChoice2);
+    
 
     pickWinner(randomChoice1, randomChoice2);
+    console.log("inside stop spin")
   };
 
   function pickWinner(randomChoice1: number, randomChoice2: number) {
     if (choices[randomChoice1].value === choices[randomChoice2].win) {
-      console.log(choices[randomChoice1].value, choices[randomChoice2].win);
-      setWinner("U");
+      console.log(score)
+      const tempScore = score
+      setScore(tempScore+1);
       setWinStatus("YOU WIN");
     } else if (choices[randomChoice1].value === choices[randomChoice2].loseTo) {
-      console.log(choices[randomChoice1].value, choices[randomChoice2].win);
-      setWinner("C");
 
       setWinStatus("YOU LOSE");
     } else {
-      console.log(choices[randomChoice1].value, choices[randomChoice2].value);
-      setWinner("");
+
       setWinStatus("DRAW");
     }
     setGameover(true);
@@ -109,48 +111,49 @@ function ToggleComponent() {
               <div className="font-semibold font-barlow text-white tracking-normal text-lg  ">
                 {item.heading}
               </div>
-              <button onClick={() => stopSpin(item.value)} className="">
+              <button onClick={()=> stopSpin(item.value)} className="">
                 {item.component}
               </button>
             </div>
           );
         })}
-       
       </div>
 
-      { (!gameon || gameover) && <div className="  relative md:absolute md:flex items-center justify-center w-full h-full ">
-        {gameover && (
-          <div className=" flex flex-col mx-auto items-center justify-center w-full h-full ">
-            <span className="text-5xl font-barlow font-bold text-white tracking-tight">
-              {winStatus}
-            </span>
+      {(!gameon || gameover) && (
+        <div className="  relative md:absolute md:flex items-center justify-center w-full h-full ">
+          {gameover && (
+            <div className=" flex flex-col mx-auto items-center justify-center w-full h-full ">
+              <span className="text-5xl font-barlow font-bold text-white tracking-tight">
+                {winStatus}
+              </span>
+              <button
+                onClick={() => {
+                  toggleChoices();
+                }}
+                className=" rounded-md flex items-center justify-center bg-white py-2 mt-4"
+              >
+                {" "}
+                <span className="font-barlow tracking-wide text-darkText mx-8 ">
+                  PLAY AGAIN
+                </span>
+              </button>
+            </div>
+          )}
+          {!gameon && (
             <button
               onClick={() => {
                 toggleChoices();
               }}
-              className=" rounded-md flex items-center justify-center bg-white py-2 mt-4"
+              className=" rounded-md flex items-center justify-center mx-auto bg-white py-2 mt-4"
             >
               {" "}
               <span className="font-barlow tracking-wide text-darkText mx-8 ">
-                PLAY AGAIN
+                START
               </span>
             </button>
-          </div>
-        )}
-        {!gameon && (
-          <button
-            onClick={() => {
-              toggleChoices();
-            }}
-            className=" rounded-md flex items-center justify-center bg-white py-2 mt-4"
-          >
-            {" "}
-            <span className="font-barlow tracking-wide text-darkText mx-8 ">
-              START
-            </span>
-          </button>
-        )}
-      </div>}
+          )}
+        </div>
+      )}
     </div>
     // <div>
     //   <h1>Computer is choosing...</h1>
