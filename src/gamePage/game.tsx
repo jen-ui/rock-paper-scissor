@@ -28,7 +28,7 @@ export function GamePage() {
         )
         }
 
-        <div className=" flex-col-reverse w-full  flex lg:flex-row  md:justify-between justify-center items-center mt-20">
+        <div className=" flex-col-reverse w-full gap-8 mt-32  flex lg:flex-row  md:justify-between justify-center items-center md:mt-20">
 
           <Button handleClick={()=>setPlayGame(!playGame)}>{ playGame?"BACK":"PLAY"}</Button>
           <Button handleClick={()=>setDisplayRules(true)}>RULES</Button>
