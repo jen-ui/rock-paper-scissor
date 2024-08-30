@@ -11,7 +11,11 @@ type ToggleProps = {
   score:number
 };
 
+type RulesProps = {
+  setDisplayRules: React.Dispatch<React.SetStateAction<boolean>>;
+};
 
 
 
-export type {ToggleProps,ButtonProps}
+
+export type {ToggleProps,ButtonProps, RulesProps}

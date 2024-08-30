@@ -1,4 +1,4 @@
-import RulesProps from "../interfacce";
+import {RulesProps} from "../interfacce";
 
 
 const Rules = ({ setDisplayRules }:RulesProps) => {
