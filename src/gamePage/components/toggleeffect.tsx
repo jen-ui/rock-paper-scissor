@@ -97,6 +97,7 @@ function ToggleComponent({ setScore,score }: ToggleProps) {
       setWinStatus("DRAW");
     }
     setGameover(true);
+    setGameOn(false);
   }
 
   return (
@@ -140,7 +141,7 @@ function ToggleComponent({ setScore,score }: ToggleProps) {
               </button>
             </div>
           )}
-          {!gameon && (
+          {(!gameon && !gameover) && (
             <button
               onClick={() => {
                 toggleChoices();
