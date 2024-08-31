@@ -101,8 +101,8 @@ function ToggleComponent({ setScore,score }: ToggleProps) {
   }
 
   return (
-    <div className="flex flex-col  bg-transparent mx-auto lg:w-[650px] md:w-[550px] sm:w-[450px] min-w-[200px] relative my-20 ">
-      <div className="flex w-full h-full items-center justify-between">
+    <div className="flex flex-col  bg-transparent mx-auto lg:w-[650px] md:w-[550px] sm:w-[450px] min-w-[250px] relative my-20 ">
+      <div className="flex w-full h-full items-center justify-between gap-10">
         {displayItems.map((item) => {
           return (
             <div
