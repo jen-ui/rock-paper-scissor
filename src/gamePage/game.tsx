@@ -17,7 +17,7 @@ export function GamePage() {
   return (
     <div className="flex items-center justify-center w-full relative">
       {displayRules && <Rules setDisplayRules={setDisplayRules} />}
-      <div className="relative bg-backgroundColor  w-full min-h-screen p-12">
+      <div className="relative bg-backgroundColor w-full min-h-screen sm:p-12 p-4">
         <Header score={score} />
         <div className="flex "
         >
