@@ -113,7 +113,7 @@ function ToggleComponent({ setScore,score }: ToggleProps) {
                 {item.heading}
                 
               </div>
-              <button disabled={item.value==2} onClick={()=> stopSpin(item.value)} className="">
+              <button disabled={item.value==2||!gameon} onClick={()=> stopSpin(item.value)} className="">
                 {item.component}
               </button>
             </div>
